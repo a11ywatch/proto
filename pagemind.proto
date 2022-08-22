@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/struct.proto";
 
-// Accessibility and page metrics [50052].
+// Accessibility and page metrics.
 service Pagemind {
    rpc Scan (ScanParams) returns (Web) {} // scan a page to get accessiblity issues.
    rpc SetScript (ScriptParams) returns (Script) {} // update or create script with accessibility fixes.

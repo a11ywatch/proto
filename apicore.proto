@@ -4,7 +4,7 @@ import "google/protobuf/struct.proto";
 
 package apicore;
 
-// Core API. Default port starts on [50051].
+// Core API.
 service CoreService {
     rpc Scan (CrawlParams) returns (ReportResponse) {} // non stream scanning allowing for full track up time for keep alive cost.
     rpc Crawl (CrawlParams) returns (stream ReportResponse) {} // stream the scan request and simply return.

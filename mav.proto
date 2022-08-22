@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-// Image finding service to determine descriptions. Default port starts on [50053].
+// Image finding service to determine descriptions.
 service Mav {
    rpc ParseImg (ParseParams) returns (Img) {} // determine an image from a base64 string or url.
 }

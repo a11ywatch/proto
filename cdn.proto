@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-// CDN that is backed by S3. Default port starts on [50054].
+// CDN that is backed by S3.
 service Cdn {
    rpc AddScript (ResourceParams) returns (ScriptStatus) {} // insert a script into s3 or locally.
 }

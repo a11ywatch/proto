@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package website;
 
-// Central API that manages your website between starting single and multi page scans. Default port starts on [50051].
+// Central API that manages your website between starting single and multi page scans.
 service WebsiteService {
    rpc ScanStart (ScanInitParams) returns (Empty) {} // track when scan starts.
    rpc ScanEnd (ScanInitParams) returns (Empty) {} // tracks when scan completes.
