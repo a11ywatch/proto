@@ -3,6 +3,7 @@ syntax = "proto3";
 // CDN that is backed by S3.
 service Cdn {
    rpc AddScript (ResourceParams) returns (ScriptStatus) {} // insert a script into s3 or locally.
+   rpc RemoveScript (ResourceParams) returns (ScriptStatus) {} // remove a script in s3 or locally.
 }
 
 // the resource to store into the cdn
