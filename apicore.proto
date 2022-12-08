@@ -18,6 +18,7 @@ message CrawlParams {
    bool subdomains = 4; // include all subdomains.
    bool pageInsights = 5; // run page insights across scans.
    bool norobo = 6; // do not respect robots.txt
+   bool html = 7; // raw HTML to verify
 }
 
 // crawl page headers to set per request.

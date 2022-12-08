@@ -19,6 +19,7 @@ message ScanParams {
    string domain = 2; // the url base of the crawl.
    uint32 user_id = 3; // user id performing scan.
    bool full = 4; // full crawl performed with all links.
+   string html = 5; // raw HTML to verify.
 }
 
 // params to declare scan stream initiation [Should use bidirectional streams instead].
@@ -35,7 +36,7 @@ message ScanStreamResponse {
    string message = 1; // message of the scan success or if should terminate.
 }
 
-// Lighthouse report insight.
+// Lighthouse report insight from Pagemind.
 message LightHouse {
    uint32 user_id = 1; // the user that made the request.
    string domain = 2; // the domain for the request [example.com].

@@ -29,6 +29,7 @@ message ScanParams {
    string hideElements = 11; // CSS selector to hide elements from testing, selectors can be comma separated.
    bool cv = 12; // can perform with Computer Vision.
    string pageSpeedApiKey = 13; // Google PageSpeed API key for request.
+   string html = 14; // Raw HTML to verify.
 }
 
 // upsert script params
