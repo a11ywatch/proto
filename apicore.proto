@@ -64,7 +64,7 @@ message PageLoadTime {
    string color = 3; // color indicator for the message.
 }
 
-// the issue that occured, either of type error, notice, warning in desc order.
+// the issue that occurred, either of type error, notice, warning in desc order.
 message Issue {
    string code = 1; // wcag error code.
    string type = 2; // warning, error, or notice.

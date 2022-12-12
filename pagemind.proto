@@ -77,10 +77,10 @@ message Page {
    PageLoadTime pageLoadTime = 4; // page load time.
    google.protobuf.Struct insight = 5; // the json details from lighthouse
    IssuesInfo issuesInfo = 6; // issues on the page.
-   string lastScanDate = 7; // the last date of the scan.
+   string lastScanDate = 7; // the date of the scan.
 }
 
-// the issue that occured, either of type error, notice, warning in desc order.
+// the issue that occurred, either of type error, notice, warning in desc order.
 message Problem {
    string code = 1; // wcag error code.
    string type = 2; // warning, error, or notice.
@@ -96,7 +96,7 @@ message Problem {
 message Issues {
    string documentTitle = 1; // document page title.
    string pageUrl = 2; // the page url for the issue report.
-   repeated Problem issues = 3; // all of the issues that occured on the page.
+   repeated Problem issues = 3; // all of the issues that occurred on the page.
    string domain = 4; // the domain of the page.
 }
 
@@ -118,4 +118,5 @@ message Web {
    Issues issues = 2; // all of the issues that relate to the page.
    Script script = 3; // the page script body contents without <script> tags.
    uint32 userId = 4; // the user that made the request.
+   uint32 usage = 5; // uptime used for main user based events.
 }
