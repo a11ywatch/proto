@@ -30,6 +30,7 @@ message ScanParams {
    bool cv = 12; // can perform with Computer Vision.
    string pageSpeedApiKey = 13; // Google PageSpeed API key for request.
    string html = 14; // Raw HTML to verify.
+   bool firefox = 15; // run in firefox browser.
 }
 
 // upsert script params
