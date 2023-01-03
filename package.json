@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/a11ywatch/a11ywatch.git"
+    "url": "git+https://github.com/a11ywatch/protobuf.git"
   },
   "keywords": [
     "protobuf",
