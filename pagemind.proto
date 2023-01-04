@@ -31,6 +31,7 @@ message ScanParams {
    string pageSpeedApiKey = 13; // Google PageSpeed API key for request.
    string html = 14; // Raw HTML to verify.
    bool firefox = 15; // run in firefox browser.
+   repeated string ignore = 16; // ignore list of standards.
 }
 
 // upsert script params
