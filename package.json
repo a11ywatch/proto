@@ -1,6 +1,6 @@
 {
   "name": "@a11ywatch/protos",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "description": "Protocol buffers for the A11yWatch system",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,8 @@
   },
   "keywords": [
     "protobuf",
-    "grpc"
+    "grpc",
+    "a11ywatch"
   ],
   "author": "Jeff Mendez <jeff@a11ywatch.com>",
   "license": "MIT",
