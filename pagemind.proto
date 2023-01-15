@@ -62,7 +62,7 @@ message IssuesInfo {
    int32 errorCount = 4; // errors on the page.
    int32 warningCount = 5; // warnings on the page.
    int32 noticeCount = 6; // notices on the page that mainly used for info purposes.
-   int32 adaScore = 7; // rough accessibility score.
+   int32 accessScore = 7; // rough accessibility score.
    IssueMeta issueMeta = 8; // extra data on the issue.
 }
 
