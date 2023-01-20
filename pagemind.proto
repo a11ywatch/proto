@@ -5,7 +5,6 @@ import "google/protobuf/struct.proto";
 // Accessibility and page metrics.
 service Pagemind {
    rpc Scan (ScanParams) returns (Web) {} // scan a page to get accessiblity issues.
-   rpc SetScript (ScriptParams) returns (Script) {} // update or create script with accessibility fixes.
 }
 
 // crawl page headers to set per request.
@@ -20,38 +19,23 @@ message ScanParams {
    string url = 2; // the page url to run tests on.
    repeated Headers pageHeaders = 3; // heads to include when running.
    bool pageInsights = 4; // Run lighthouse reports.
-   bool noStore = 5;  // Do not store to AWS script changes.
-   bool scriptsEnabled = 6; // Add js fix script.
-   bool mobile = 7; // Run as mobile view port.
-   repeated string actions = 8; // List of actions to run on page.
-   string ua = 9; // User agent to use for request.
-   string standard = 10; // The WCAG standard to use WCAG2A, WCAG2AA, or WCAG2AAA.
-   string hideElements = 11; // CSS selector to hide elements from testing, selectors can be comma separated.
-   bool cv = 12; // can perform with Computer Vision.
-   string pageSpeedApiKey = 13; // Google PageSpeed API key for request.
-   string html = 14; // Raw HTML to verify.
-   bool firefox = 15; // run in firefox browser.
-   repeated string ignore = 16; // ignore list of rules.
-   repeated string rules = 17; // list of rules to comply.
-   repeated string runners = 18; // list of runners to use like axe, htmlcs, and a11y.
-}
-
-// upsert script params
-message ScriptParams {
-   bool editScript = 1; // should this edit the script?
-   string url = 2; // page url for the request.
-   Script script = 3; // pass in script object.
-   string newScript = 4; // new script to replace content?
+   bool mobile = 5; // Run as mobile view port.
+   repeated string actions = 6; // List of actions to run on page.
+   string ua = 7; // User agent to use for request.
+   string standard = 8; // The WCAG standard to use WCAG2A, WCAG2AA, or WCAG2AAA.
+   string hideElements = 9; // CSS selector to hide elements from testing, selectors can be comma separated.
+   bool cv = 10; // can perform with Computer Vision.
+   string pageSpeedApiKey = 11; // Google PageSpeed API key for request.
+   string html = 12; // Raw HTML to verify.
+   bool firefox = 13; // run in firefox browser.
+   repeated string ignore = 14; // ignore list of rules.
+   repeated string rules = 15; // list of rules to comply.
+   repeated string runners = 16; // list of runners to use like axe, htmlcs, and a11y.
 }
 
 // meta details for the page to include extra supportive features. 
 message IssueMeta {
    bool skipContentIncluded = 1; // add a skip content button onto the script if not found.
-}
-
-// script meta adjustments
-message ScriptMeta {
-   bool skipContentEnabled = 1; // is skip content enabled for the page
 }
 
 // info to use to gather all stats for the issues on the page.
@@ -70,18 +54,16 @@ message IssuesInfo {
 message PageLoadTime {
    int32 duration = 1; // duration in ms.
    string durationFormated = 2; // durations formatted to a readable message.
-   string color = 3; // color indicator for the message.
 }
 
 // page model of all helpful insight
 message Page {
    string domain = 1; // the domain for the request [example.com].
    string url = 2; // the url of the request with http or https
-   bool cdnConnected = 3; // is the cdn for accessibility fixes connected on the page.
-   PageLoadTime pageLoadTime = 4; // page load time.
-   google.protobuf.Struct insight = 5; // the json details from lighthouse
-   IssuesInfo issuesInfo = 6; // issues on the page.
-   string lastScanDate = 7; // the date of the scan.
+   PageLoadTime pageLoadTime = 3; // page load time.
+   google.protobuf.Struct insight = 4; // the json details from lighthouse
+   IssuesInfo issuesInfo = 5; // issues on the page.
+   string lastScanDate = 6; // the date of the scan.
 }
 
 // the issue that occurred, either of type error, notice, warning in desc order.
@@ -104,23 +86,10 @@ message Issues {
    string domain = 4; // the domain of the page.
 }
 
-// javascript that runs to attempt to fix the page.
-message Script {
-   string pageUrl = 1; // the page url that ran the request.
-   string domain = 2; // the domain of the page.
-   string script = 3; // the fix script body contents without <script></script>.
-   string cdnUrlMinified = 4; //  the cdn url for accessibility fixes custom to the page minified.
-   string cdnUrl = 5; // the cdn url for accessibility fixes custom to the page.
-   bool cdnConnected = 6; // determine if accessibility cdn is connected.
-   IssueMeta issueMeta = 7; // extra info to determine stats on the issues.
-   ScriptMeta scriptMeta = 8; // meta information to help track script stats.
-}
-
 // fields that build that Website that is treated as a Page.
 message Web {
    Page webPage = 1; // the website information or stats.
    Issues issues = 2; // all of the issues that relate to the page.
-   Script script = 3; // the page script body contents without <script> tags.
-   uint32 userId = 4; // the user that made the request.
-   uint32 usage = 5; // uptime used for main user based events.
+   uint32 userId = 3; // the user that made the request.
+   uint32 usage = 4; // uptime used for main user based events.
 }
